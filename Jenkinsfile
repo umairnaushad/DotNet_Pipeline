@@ -38,11 +38,28 @@ pipeline {
 
         stage ('Build Interlayer') {
             when {
-                // Only say hello if a "greeting" is requested
                 expression { tagName.contains('interlayer') == true }
             }
             steps {
                 echo "Building interlayer"
+            }
+        }
+
+        stage ('Build AdminTool') {
+            when {
+                expression { tagName.contains('admintool') == true }
+            }
+            steps {
+                echo "Building AdminTool"
+            }
+        }
+
+        stage ('Build WebApplication') {
+            when {
+                expression { tagName.contains('webapplication') == true }
+            }
+            steps {
+                echo "Building WebApplication"
             }
         }
     }
