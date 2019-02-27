@@ -38,7 +38,7 @@ pipeline {
 
         stage ('Build Interlayer') {
             when {
-                expression { tagName.contains('interlayer') == true }
+                expression { tagName.contains('interlayer') }
             }
             steps {
                 echo "Building interlayer"
@@ -47,7 +47,7 @@ pipeline {
 
         stage ('Build AdminTool') {
             when {
-                expression { tagName.contains('admintool') == true }
+                expression { tagName.contains('admintool') }
             }
             steps {
                 echo "Building AdminTool"
@@ -56,7 +56,7 @@ pipeline {
 
         stage ('Build WebApplication') {
             when {
-                expression { tagName.contains('webapplication') == true }
+                expression { tagName.contains('webapplication') }
             }
             steps {
                 echo "Building WebApplication"
