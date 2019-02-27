@@ -17,7 +17,7 @@ pipeline {
     agent any
 
     stages {
-        stage('Initialization') {
+        stage('Checkout') {
             steps {
                 script {
                     props = readProperties file:'system.properties'
@@ -33,6 +33,8 @@ pipeline {
                     echo 'deploymentType: ' + deploymentType + ', environment: ' + environment + ', versionNo: ' + versionNo + ', buildNo: ' + buildNo
                     echo 'strArray size: ' + strArray.size()
                     echo 'Expression: ' + tagName.contains('interlayer')
+
+                    git branch: 'master', credentialsId: 'github_Umair', url: 'https://github.com/umairnaushad/DotNet.git' 
                 }                
             }
         }
