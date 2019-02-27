@@ -23,9 +23,9 @@ pipeline {
                     props = readProperties file:'system.properties'
                     gitRepo = props.gitRepo
                     gitBranch = props.gitBranch                    
-                    tagName = props.tagName
+                    tagName = props.tagName.toLowerCase()
                     echo 'gitRepo: ' + gitRepo + ', gitBranch: ' + gitBranch + ', tagName: ' + tagName
-                    strArray = tagName.toLowerCase().split('-')
+                    strArray = tagName.split('-')
                     deploymentType = strArray[0]
                     environment = strArray[1]
                     versionNo = strArray[strArray.size() - 2]
