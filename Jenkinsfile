@@ -44,10 +44,12 @@ pipeline {
                 expression { tagName.contains('interlayer') }
             }
             steps {
-                echo "Building interlayer"
-                def exitStatus = bat(returnStatus: true, script: "${msbuild} 'Source/VS Solution/Desktop Application.sln' /p:Configuration=Debug")
-                if (exitStatus != 0){
-                    currentBuild.result = 'FAILURE'
+                script {                    
+                    echo "Building interlayer"
+                    def exitStatus = bat(returnStatus: true, script: "${msbuild} 'Source/VS Solution/Desktop Application.sln' /p:Configuration=Debug")
+                    if (exitStatus != 0){
+                        currentBuild.result = 'FAILURE'
+                    }
                 }
             }
         }
