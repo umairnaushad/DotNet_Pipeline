@@ -30,7 +30,7 @@ pipeline {
                     environment = strArray[1]
                     versionNo = strArray[strArray.size() -1]
                     buildNo = strArray[strArray.size() -2]
-                    echo 'deploymentType: ' + deploymentType + ', environment: ' + environment
+                    echo 'deploymentType: ' + deploymentType + ', environment: ' + environment + 'versionNo' + versionNo + 'buildNo' + buildNo
                     echo 'strArray size: ' + strArray.size()
                 }                
             }
