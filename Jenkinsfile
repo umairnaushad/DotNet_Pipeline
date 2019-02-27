@@ -32,6 +32,7 @@ pipeline {
                     buildNo = strArray[strArray.size() - 1]
                     echo 'deploymentType: ' + deploymentType + ', environment: ' + environment + ', versionNo: ' + versionNo + ', buildNo: ' + buildNo
                     echo 'strArray size: ' + strArray.size()
+                    echo 'Expression: ' + tagName.contains('interlayer')
                 }                
             }
         }
