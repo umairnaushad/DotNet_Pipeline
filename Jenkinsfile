@@ -45,16 +45,8 @@ pipeline {
             }
             steps {
                 script {                    
-                    echo "Building interlayer 2"
-                    /*def exitStatus = bat(returnStatus: true, script: "msbuild.exe \"${WORKSPACE}\\Source\\VS Solution\\Desktop Application.sln\" /p:Configuration=Release /p:Platform=\"Any CPU\" /p:ProductVersion=1.0.0.${env.BUILD_NUMBER}")
-                    if (exitStatus != 0){
-                        currentBuild.result = 'FAILURE'
-                    }
-                    */
-                    //def msbuild = tool name: 'MSBuild', type: 'hudson.plugins.msbuild.MsBuildInstallation'
-                    //bat "${msbuild} 'Source/VS Solution/Desktop Application.sln'"
+                    echo "Building interlayer"                    
                     bat "msbuild.exe \"${WORKSPACE}\\Source\\VS Solution\\Desktop Application.sln\" /p:Configuration=Release /p:Platform=\"Any CPU\" /p:ProductVersion=1.0.0.${env.BUILD_NUMBER}"
-                    //bat "${msbuild} \"${WORKSPACE}\\Source\\VS Solution\\Desktop Application.sln\" /p:Configuration=Release /p:Platform=\"Any CPU\" /p:ProductVersion=1.0.0.${env.BUILD_NUMBER}"
                 }
             }
         }
