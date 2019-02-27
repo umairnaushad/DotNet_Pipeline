@@ -46,10 +46,13 @@ pipeline {
             steps {
                 script {                    
                     echo "Building interlayer"
-                    def exitStatus = bat(returnStatus: true, script: "${msbuild} 'Source/VS Solution/Desktop Application.sln' /p:Configuration=Debug")
+                    /*def exitStatus = bat(returnStatus: true, script: "${msbuild} 'Source/VS Solution/Desktop Application.sln' /p:Configuration=Debug")
                     if (exitStatus != 0){
                         currentBuild.result = 'FAILURE'
                     }
+                    */
+                    def msbuild = tool name: 'MSBuild', type: 'hudson.plugins.msbuild.MsBuildInstallation'
+                    bat "${msbuild} 'Source/VS Solution/Desktop Application.sln'"
                 }
             }
         }
