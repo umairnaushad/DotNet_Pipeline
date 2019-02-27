@@ -26,7 +26,7 @@ pipeline {
                     echo 'gitRepo: ' + gitRepo
                     echo 'gitBranch: ' + gitBranch
                     echo 'tagName: ' + tagName
-                    strArray = tagName.convertToLower().split('-')
+                    strArray = tagName.toLowerCase().split('-')
                     deploymentType = strArray[0]
                     echo 'deploymentType: ' + deploymentType
                 }                
