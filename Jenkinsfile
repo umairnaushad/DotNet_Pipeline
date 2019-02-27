@@ -45,7 +45,7 @@ pipeline {
             }
             steps {
                 echo "Building interlayer"
-                def exitStatus = bat(returnStatus: true, script: "${msbuild} 'Source\VS Solution\Desktop Application.sln' /p:Configuration=Debug")
+                def exitStatus = bat(returnStatus: true, script: "${msbuild} 'Source/VS Solution/Desktop Application.sln' /p:Configuration=Debug")
                 if (exitStatus != 0){
                     currentBuild.result = 'FAILURE'
                 }
