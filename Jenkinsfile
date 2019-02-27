@@ -28,9 +28,9 @@ pipeline {
                     strArray = tagName.toLowerCase().split('-')
                     deploymentType = strArray[0]
                     environment = strArray[1]
-                    versionNo = strArray[strArray.size() -1]
-                    buildNo = strArray[strArray.size() -2]
-                    echo 'deploymentType: ' + deploymentType + ', environment: ' + environment + 'versionNo' + versionNo + 'buildNo' + buildNo
+                    versionNo = strArray[strArray.size() - 2]
+                    buildNo = strArray[strArray.size() - 1]
+                    echo 'deploymentType: ' + deploymentType + ', environment: ' + environment + ', versionNo: ' + versionNo + ', buildNo: ' + buildNo
                     echo 'strArray size: ' + strArray.size()
                 }                
             }
