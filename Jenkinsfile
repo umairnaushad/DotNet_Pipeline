@@ -4,6 +4,7 @@ def gitBranch
 def deploymentType
 def environment
 def isAdminTool, isInterlayer, isWeb, isDatabase 
+def versionNo, buildNo
 def tagName
 def strArray
 
@@ -27,6 +28,8 @@ pipeline {
                     strArray = tagName.toLowerCase().split('-')
                     deploymentType = strArray[0]
                     environment = strArray[1]
+                    versionNo = strArray[strArray.size() -1]
+                    buildNo = strArray[strArray.size() -2]
                     echo 'deploymentType: ' + deploymentType + ', environment: ' + environment
                     echo 'strArray size: ' + strArray.size()
                 }                
