@@ -17,7 +17,7 @@ pipeline {
     agent any
 
     stages {
-        stage("Pipeline Info") {
+        stage('Initialization') {
             steps {
                 script {
                     props = readProperties file:'system.properties'
@@ -33,6 +33,16 @@ pipeline {
                     echo 'deploymentType: ' + deploymentType + ', environment: ' + environment + ', versionNo: ' + versionNo + ', buildNo: ' + buildNo
                     echo 'strArray size: ' + strArray.size()
                 }                
+            }
+        }
+
+        stage ('Build Interlayer') {
+            when {
+                // Only say hello if a "greeting" is requested
+                expression { tagName.contains('interlayer') == true }
+            }
+            steps {
+                echo "Building interlayer"
             }
         }
     }
