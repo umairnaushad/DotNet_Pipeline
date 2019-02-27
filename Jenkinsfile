@@ -5,7 +5,7 @@ def deploymentType
 def environment
 def isAdminTool, isInterlayer, isWeb, isDatabase 
 def tagName
-
+def strArray
 
 pipeline {
 
@@ -20,12 +20,15 @@ pipeline {
             steps {
                 script {
                     props = readProperties file:'system.properties'
-                    gitRepo=props.gitRepo
-                    gitBranch=props.gitBranch                    
+                    gitRepo = props.gitRepo
+                    gitBranch = props.gitBranch                    
                     tagName = props.tagName
                     echo 'gitRepo: ' + gitRepo
                     echo 'gitBranch: ' + gitBranch
                     echo 'tagName: ' + tagName
+                    strArray = tagName.convertToLower().split('-')
+                    deploymentType = strArray[0]
+                    echo 'deploymentType: ' + deploymentType
                 }                
             }
         }
