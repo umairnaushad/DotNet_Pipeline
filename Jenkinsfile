@@ -23,12 +23,12 @@ pipeline {
                     gitRepo = props.gitRepo
                     gitBranch = props.gitBranch                    
                     tagName = props.tagName
-                    echo 'gitRepo: ' + gitRepo
-                    echo 'gitBranch: ' + gitBranch
-                    echo 'tagName: ' + tagName
+                    echo 'gitRepo: ' + gitRepo + ', gitBranch: ' + gitBranch + ', tagName: ' + tagName
                     strArray = tagName.toLowerCase().split('-')
                     deploymentType = strArray[0]
-                    echo 'deploymentType: ' + deploymentType
+                    environment = strArray[1]
+                    echo 'deploymentType: ' + deploymentType + ', environment: ' + environment
+                    echo 'strArray size: ' + strArray.size()
                 }                
             }
         }
