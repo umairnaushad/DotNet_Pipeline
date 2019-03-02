@@ -34,7 +34,7 @@ pipeline {
                     echo 'strArray size: ' + strArray.size()
                     echo 'Expression: ' + tagName.contains('interlayer')
 
-                    git branch: 'master', credentialsId: 'github_Umair', url: 'https://github.com/umairnaushad/DotNet.git' 
+                    git branch: gitBranch, credentialsId: 'github_Umair', url: gitRepo 
                 }                
             }
         }
