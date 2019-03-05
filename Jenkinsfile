@@ -46,7 +46,7 @@ pipeline {
             steps {
                 script {                    
                     echo "Building interlayer"                    
-                    bat "msbuild.exe \"${WORKSPACE}\\Source\\VS Solution\\Desktop Application.sln\" /p:Configuration=Release /p:Platform=\"Any CPU\" /p:ProductVersion=1.0.0.${env.BUILD_NUMBER}"
+                    bat "msbuild.exe \"${WORKSPACE}\\Source\\VS Solution\\Desktop Application.sln\" /t:Build /p:Configuration=Release /p:TargetFramework=v4.7.2 /p:Platform=\"Any CPU\" /p:ProductVersion=1.0.0.${env.BUILD_NUMBER}"
                 }
             }
         }
@@ -68,5 +68,7 @@ pipeline {
                 echo "Building WebApplication"
             }
         }
+
+
     }
 }
