@@ -71,6 +71,11 @@ pipeline {
 
         }
 
+        stage ('Upload Artifacts') {
+            steps {
+                nexusArtifactUploader artifacts: [[artifactId: 'executables', classifier: '', file: 'Exe.zip', type: 'zip']], credentialsId: 'NEXUS', groupId: 'dotnet_app', nexusUrl: 'localhost:8081/', nexusVersion: 'nexus3', protocol: 'http', repository: 'test_repo/Nexus', version: '1.$BUILD_NUMBER'
+            }
+        }
 
     }
 }
