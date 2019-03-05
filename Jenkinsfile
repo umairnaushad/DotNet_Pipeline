@@ -46,7 +46,7 @@ pipeline {
             steps {
                 script {                    
                     echo "Building interlayer"
-                    echo "${tool 'v15.0'}\msbuild.exe"
+                    echo "${tool 'v15.0'}\\msbuild.exe"
                     bat "${tool 'v15.0'}\msbuild.exe \"${WORKSPACE}\\Source\\VS Solution\\Desktop Application.sln\" /t:Build /p:Configuration=Release /p:TargetFramework=v4.7.2 /p:Platform=\"Any CPU\" /p:ProductVersion=1.0.0.${env.BUILD_NUMBER}"
                 }
             }
