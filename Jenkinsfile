@@ -72,6 +72,8 @@ pipeline {
         }
 
         stage ('Static Code Analysis') {
+            steps {
+                
                     def sqScannerMsBuildHome = tool 'SonarScanner_MSBuild'
        /*             withSonarQubeEnv('My SonarQube Server') {
 /*                        // Due to SONARMSBRU-307 value of sonar.host.url and credentials should be passed on command line
@@ -82,6 +84,7 @@ pipeline {
                         bat "${sqScannerMsBuildHome}\\SonarQube.Scanner.MSBuild.exe end /d:sonar.login=%SONAR_AUTH_TOKEN%"
                   }    
          */
+            }
         }
 
         stage ('Upload Artifacts') {
